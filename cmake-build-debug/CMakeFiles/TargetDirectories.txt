@@ -1,0 +1,3 @@
+D:/Self-Learning/Languages/C++/Projects/Nafka/cmake-build-debug/CMakeFiles/Nafka.dir
+D:/Self-Learning/Languages/C++/Projects/Nafka/cmake-build-debug/CMakeFiles/edit_cache.dir
+D:/Self-Learning/Languages/C++/Projects/Nafka/cmake-build-debug/CMakeFiles/rebuild_cache.dir
