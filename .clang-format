@@ -1,7 +1,8 @@
 ﻿# Generated from CLion C/C++ Code Style settings
 ---
 Language: Cpp
-BasedOnStyle: LLVM
+BasedOnStyle: Microsoft
+PointerAlignment: Left
 AccessModifierOffset: -4
 AlignConsecutiveAssignments: false
 AlignConsecutiveDeclarations: false
