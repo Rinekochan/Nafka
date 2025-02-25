@@ -33,7 +33,7 @@ int main(int argc, char* argv[]) {
     Client client;
 
     try {
-        client.accept_c(server.m_socket);
+        client.accept_c(server.get_socket());
 
     } catch (const std::exception& e) {
         Logger::print_current_time(cerr);

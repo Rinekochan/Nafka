@@ -17,11 +17,12 @@
 
 namespace Nafka {
     struct Client {
+        Client();
+        Client& accept_c(const SOCKET& server);
+        void close_c() const;
+    private:
         SOCKET m_socket;
         sockaddr_in m_address;
         socklen_t m_address_len;
-        Client();
-        Client& accept_c(SOCKET server);
-        void close_c() const;
     };
 }

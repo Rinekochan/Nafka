@@ -17,14 +17,16 @@
 
 namespace Nafka {
     struct Server {
-        SOCKET m_socket;
-        sockaddr_in m_address;
         Server();
         Server& set_socket(int address_family, int socket_type, int protocol);
+        SOCKET& get_socket();
         Server& set_reusable(int level, int option_name, const char* option_val, int option_len);
         Server& set_server_ip(short address_family, u_long src_address_scope, u_short port);
         Server& bind_s();
         Server& listen_s(int connection_amt);
         void close_s() const;
+    private:
+        SOCKET m_socket;
+        sockaddr_in m_address;
     };
 }

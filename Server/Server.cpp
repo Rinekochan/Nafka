@@ -27,6 +27,9 @@ Server& Server::set_socket(const int address_family, const int socket_type, cons
     }
     return *this;
 }
+SOCKET& Server::get_socket() {
+    return m_socket;
+}
 
 // Force the program to reuse the port if a connection is hanging
 Server& Server::set_reusable(const int level, const int option_name, const char* option_val, const int option_len) {
