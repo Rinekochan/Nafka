@@ -4,40 +4,40 @@
 
 #include "Response.h"
 
-#include <stdexcept>
+#include <format>
 
 #include "../Helper/Helper.h"
 
-namespace Nafka::Connection {
-    // Define constructors
-    ResponseHeader::ResponseHeader(const uint32_t correlation_id)
-        : correlation_id(correlation_id){}
+using namespace Nafka::Connection;
 
-    Response::Response(const ResponseHeader& header, const ResponseBody& body)
-        : header(header), body(body) {}
+// Define constructors
+ResponseHeader::ResponseHeader(const uint32_t correlation_id)
+    : correlation_id(correlation_id){}
 
-    // Define serialization functions
-    std::vector<uint8_t> ResponseHeader::serialize() const {
-        std::vector<uint8_t> bi_data;
+Response::Response(const ResponseHeader& header, const ResponseBody& body)
+    : header(header), body(body) {}
 
-        Helper::serialize_bytes(correlation_id, bi_data, sizeof(correlation_id));
+// Define serialization functions
+std::vector<uint8_t> ResponseHeader::serialize() const {
+    std::vector<uint8_t> bi_data;
 
-        return bi_data;
-    }
+    Helper::serialize_bytes(correlation_id, bi_data, sizeof(correlation_id));
 
-    std::vector<uint8_t> Response::serialize() const {
-        std::vector<uint8_t> bi_data;
+    return bi_data;
+}
 
-        Helper::serialize_bytes(message_size, bi_data, sizeof(message_size));
+std::vector<uint8_t> Response::serialize() const {
+    std::vector<uint8_t> bi_data;
 
-        auto header_data = header.serialize();
-        bi_data.insert(std::end(bi_data), std::begin(header_data), std::end(header_data));
+    Helper::serialize_bytes(message_size, bi_data, sizeof(message_size));
 
-        return bi_data;
-    }
+    auto header_data = header.serialize();
+    bi_data.insert(std::end(bi_data), std::begin(header_data), std::end(header_data));
 
-    void operator<<(std::ostream& stream, Response& response) {
-         stream << std::format("\n\"message_size\": {},\n\"correlation_id\": {}\n",
-             response.message_size, response.header.correlation_id);
-    }
+    return bi_data;
+}
+
+std::string Response::to_string() const {
+    return std::format("\"message_size\": {},\n\"correlation_id\": {}",
+        message_size, header.correlation_id);
 }

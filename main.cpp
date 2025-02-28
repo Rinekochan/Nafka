@@ -2,12 +2,14 @@
 #include <iostream>
 
 #include "Client/Client.h"
+#include "Connection/Connection/Connection.h"
 #include "Logger/Logger.h"
 #include "Server/Server.h"
 
 
 int main(int argc, char* argv[]) {
     using std::cout, std::cerr, Nafka::Server, Nafka::Client;
+    using namespace Nafka::Connection;
 
     // Disable output buffering
     cout << std::unitbuf;
@@ -35,6 +37,12 @@ int main(int argc, char* argv[]) {
     while (true) {
         try {
             client.accept_c(server.get_socket());
+
+            Connection connection;
+
+            connection.bind_client_socket(std::move(client.get_socket()));
+
+            connection.handle_requests();
 
         } catch (const std::exception& e) {
             Logger::print_current_time(cerr);

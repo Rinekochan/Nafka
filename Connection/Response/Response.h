@@ -9,7 +9,7 @@
 
 namespace Nafka::Connection {
     struct ResponseHeader {
-        uint32_t correlation_id{};
+        uint32_t correlation_id{0};
 
         explicit ResponseHeader(uint32_t correlation_id);
 
@@ -29,6 +29,6 @@ namespace Nafka::Connection {
 
         [[nodiscard]] std::vector<uint8_t> serialize() const;
 
-        friend void operator<<(std::ostream& stream, Response& response);
+        [[nodiscard]] std::string to_string() const;
     };
 } // namespace Nafka::Connection

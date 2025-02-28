@@ -19,6 +19,7 @@ namespace Nafka {
     struct Client {
         Client();
         Client& accept_c(const SOCKET& server);
+        SOCKET& get_socket();
         void close_c() const;
     private:
         SOCKET m_socket;
