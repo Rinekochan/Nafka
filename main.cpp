@@ -37,7 +37,7 @@ int main(int argc, char* argv[]) {
 
     } catch (const std::exception& e) {
         Logger::print_current_time(cerr);
-        cerr << std::format("[Client]\t{}\n", e.what());
+        Logger::print_log(cerr, std::format("[Client]\t{}\n", e.what()));
         return 1;
     }
 

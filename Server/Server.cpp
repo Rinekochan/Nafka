@@ -61,7 +61,7 @@ Server& Server::listen_s(const int connection_amt) {
         throw std::system_error(errno, std::system_category());
     }
     Logger::print_current_time(std::cout);
-    std::cout << "[Server]: Waiting for clients on port 9092...\n";
+    Logger::print_log(std::cout, "[Server]: Waiting for clients on port 9092...\n");
     return *this;
 }
 

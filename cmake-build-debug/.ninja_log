@@ -1,14 +1,7 @@
 # ninja log v6
 13	1720	7618692402586139	CMakeFiles/Nafka.dir/Logger.cpp.obj	8118bee6578c913d
-12	3439	7618702268890062	CMakeFiles/Nafka.dir/Server/Server.cpp.obj	f564b4f84742d63c
-7	2475	7618702479821057	CMakeFiles/Nafka.dir/Client/Client.cpp.obj	8614f42aeeae7ad2
-2476	2732	7618702504510148	Nafka.exe	9f05c46922ce383c
-6	3774	7618702268830064	CMakeFiles/Nafka.dir/main.cpp.obj	18b1c7790ec9f02f
-4	284	7621865426571262	build.ninja	39237f0e2e58ba2b
-21	4042	7621866445740073	CMakeFiles/Nafka.dir/Server/Server.cpp.obj	f564b4f84742d63c
-40	4275	7621866445929239	CMakeFiles/Nafka.dir/Client/Client.cpp.obj	8614f42aeeae7ad2
-14	3843	7621867934999065	CMakeFiles/Nafka.dir/Client/Client.cpp.obj	8614f42aeeae7ad2
-10	4016	7621867934967347	CMakeFiles/Nafka.dir/Server/Server.cpp.obj	f564b4f84742d63c
-13	3149	7621869190844199	CMakeFiles/Nafka.dir/Server/Server.cpp.obj	f564b4f84742d63c
-6	3720	7621869190779890	CMakeFiles/Nafka.dir/main.cpp.obj	18b1c7790ec9f02f
-3720	4683	7621869227927316	Nafka.exe	9f05c46922ce383c
+9	2956	7621884890588219	CMakeFiles/Nafka.dir/Server/Server.cpp.obj	f564b4f84742d63c
+13	2992	7621884890620368	CMakeFiles/Nafka.dir/Client/Client.cpp.obj	8614f42aeeae7ad2
+3419	3685	7621884924675577	Nafka.exe	9f05c46922ce383c
+5	3419	7621884890543193	CMakeFiles/Nafka.dir/main.cpp.obj	18b1c7790ec9f02f
+4	284	7624437599376541	build.ninja	39237f0e2e58ba2b

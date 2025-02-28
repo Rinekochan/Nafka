@@ -2,8 +2,8 @@
 #include <chrono>
 #include <iostream>
 
-struct Logger {
-    static void print_current_time(std::ostream& os = std::cout) {
+namespace Logger {
+    static void print_current_time(std::ostream& os) {
         using namespace std::chrono;
 
         time_point t_p{system_clock::now()};
@@ -14,4 +14,9 @@ struct Logger {
         localtime_s(&t_container, &time);
         os << std::put_time(&t_container, "[%c] ");
     }
-};
+
+    template<typename T>
+    static void print_log(std::ostream& os, T& content) {
+        os << content;
+    }
+}

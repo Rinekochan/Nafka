@@ -8,7 +8,10 @@ add_executable(Nafka main.cpp
         Server/Server.h
         Client/Client.cpp
         Client/Client.h
-        Logger/Logger.h)
+        Logger/Logger.h
+        Connection/Response/Response.cpp
+        Connection/Response/Response.h
+        Connection/Helper/Helper.h)
 if(WIN32)
     target_link_libraries(Nafka ws2_32)
 endif()
