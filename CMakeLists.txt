@@ -11,7 +11,11 @@ add_executable(Nafka main.cpp
         Logger/Logger.h
         Connection/Response/Response.cpp
         Connection/Response/Response.h
-        Connection/Helper/Helper.h)
+        Connection/Helper/Helper.h
+        Connection/Request/Request.cpp
+        Connection/Request/Request.h
+        Connection/Connection/Connection.cpp
+        Connection/Connection/Connection.h)
 if(WIN32)
     target_link_libraries(Nafka ws2_32)
 endif()

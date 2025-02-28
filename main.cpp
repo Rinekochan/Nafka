@@ -32,17 +32,19 @@ int main(int argc, char* argv[]) {
 
     Client client;
 
-    try {
-        client.accept_c(server.get_socket());
+    while (true) {
+        try {
+            client.accept_c(server.get_socket());
 
-    } catch (const std::exception& e) {
-        Logger::print_current_time(cerr);
-        Logger::print_log(cerr, std::format("[Client]\t{}\n", e.what()));
-        return 1;
+        } catch (const std::exception& e) {
+            Logger::print_current_time(cerr);
+            Logger::print_log(std::format("[Client]\t{}\n", e.what()), cerr);
+            client.close_c();
+            continue;
+        }
     }
 
     server.close_s();
-    client.close_c();
 
     return 0;
 }

@@ -73,6 +73,18 @@ build CMakeFiles/Nafka.dir/Connection/Response/Response.cpp.obj: CXX_COMPILER__N
   OBJECT_DIR = CMakeFiles\Nafka.dir
   OBJECT_FILE_DIR = CMakeFiles\Nafka.dir\Connection\Response
 
+build CMakeFiles/Nafka.dir/Connection/Request/Request.cpp.obj: CXX_COMPILER__Nafka_unscanned_Debug D$:/Self-Learning/Languages/C++/Projects/Nafka/Connection/Request/Request.cpp || cmake_object_order_depends_target_Nafka
+  DEP_FILE = CMakeFiles\Nafka.dir\Connection\Request\Request.cpp.obj.d
+  FLAGS = -g -std=gnu++23 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\Nafka.dir
+  OBJECT_FILE_DIR = CMakeFiles\Nafka.dir\Connection\Request
+
+build CMakeFiles/Nafka.dir/Connection/Connection/Connection.cpp.obj: CXX_COMPILER__Nafka_unscanned_Debug D$:/Self-Learning/Languages/C++/Projects/Nafka/Connection/Connection/Connection.cpp || cmake_object_order_depends_target_Nafka
+  DEP_FILE = CMakeFiles\Nafka.dir\Connection\Connection\Connection.cpp.obj.d
+  FLAGS = -g -std=gnu++23 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\Nafka.dir
+  OBJECT_FILE_DIR = CMakeFiles\Nafka.dir\Connection\Connection
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target Nafka
@@ -81,7 +93,7 @@ build CMakeFiles/Nafka.dir/Connection/Response/Response.cpp.obj: CXX_COMPILER__N
 #############################################
 # Link the executable Nafka.exe
 
-build Nafka.exe: CXX_EXECUTABLE_LINKER__Nafka_Debug CMakeFiles/Nafka.dir/main.cpp.obj CMakeFiles/Nafka.dir/Server/Server.cpp.obj CMakeFiles/Nafka.dir/Client/Client.cpp.obj CMakeFiles/Nafka.dir/Connection/Response/Response.cpp.obj
+build Nafka.exe: CXX_EXECUTABLE_LINKER__Nafka_Debug CMakeFiles/Nafka.dir/main.cpp.obj CMakeFiles/Nafka.dir/Server/Server.cpp.obj CMakeFiles/Nafka.dir/Client/Client.cpp.obj CMakeFiles/Nafka.dir/Connection/Response/Response.cpp.obj CMakeFiles/Nafka.dir/Connection/Request/Request.cpp.obj CMakeFiles/Nafka.dir/Connection/Connection/Connection.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lws2_32  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\Nafka.dir

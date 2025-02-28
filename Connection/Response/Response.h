@@ -25,7 +25,7 @@ namespace Nafka::Connection {
         ResponseHeader header;
         ResponseBody body;
 
-        Response(ResponseHeader header, ResponseBody body);
+        Response(const ResponseHeader& header, const ResponseBody& body);
 
         [[nodiscard]] std::vector<uint8_t> serialize() const;
 

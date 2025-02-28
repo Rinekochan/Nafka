@@ -3,7 +3,7 @@
 #include <iostream>
 
 namespace Logger {
-    static void print_current_time(std::ostream& os) {
+    static void print_current_time(std::ostream& os = std::cout) {
         using namespace std::chrono;
 
         time_point t_p{system_clock::now()};
@@ -16,7 +16,12 @@ namespace Logger {
     }
 
     template<typename T>
-    static void print_log(std::ostream& os, T& content) {
+    static void print_log(T&& content, std::ostream& os = std::cout) {
+        os << content;
+    }
+
+    template<typename T>
+    static void print_log(T& content, std::ostream& os = std::cout) {
         os << content;
     }
 }
