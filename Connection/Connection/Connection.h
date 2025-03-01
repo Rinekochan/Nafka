@@ -22,7 +22,7 @@ namespace Nafka::Connection {
     class Connection {
     public:
         Connection() = default;
-        void bind_client_socket(SOCKET&& socket);
+        void bind_client_socket(const SOCKET&& socket);
         void handle_requests() const;
         void send_responses(const Request& request) const;
 

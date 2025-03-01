@@ -1,4 +1,5 @@
 ﻿#include <format>
+#include <future>
 #include <iostream>
 
 #include "Client/Client.h"
@@ -34,15 +35,11 @@ int main(int argc, char* argv[]) {
 
     Client client;
 
+    std::vector<std::future<void>> futures;
+
     while (true) {
         try {
             client.accept_c(server.get_socket());
-
-            Connection connection;
-
-            connection.bind_client_socket(std::move(client.get_socket()));
-
-            connection.handle_requests();
 
         } catch (const std::exception& e) {
             Logger::print_current_time(cerr);
@@ -50,6 +47,26 @@ int main(int argc, char* argv[]) {
             client.close_c();
             continue;
         }
+
+        auto handle_clients = [](const SOCKET& socket) {
+            Connection connection;
+            connection.bind_client_socket(std::move(socket));
+            while (true) {
+                try {
+                    connection.handle_requests();
+                } catch (const std::exception& e) {
+                    Logger::print_current_time(cerr);
+                    Logger::print_log(std::format("[Client]\t{}\n", e.what()), cerr);
+                    break;
+                }
+            }
+        };
+
+        futures.emplace_back(std::async(std::launch::async, handle_clients, client.get_socket())); // add new task asynchronously
+
+        std::erase_if(futures, [](const std::future<void> &f) { // delete any tasks if it's idle
+           return f.wait_for(std::chrono::seconds(0)) == std::future_status::ready;
+        });
     }
 
     server.close_s();

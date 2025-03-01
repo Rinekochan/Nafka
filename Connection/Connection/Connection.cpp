@@ -10,7 +10,7 @@
 
 using namespace Nafka::Connection;
 
-void Connection::bind_client_socket(SOCKET&& socket) {
+void Connection::bind_client_socket(const SOCKET&& socket) {
     client_socket = std::make_unique<SOCKET>(socket);
 }
 
