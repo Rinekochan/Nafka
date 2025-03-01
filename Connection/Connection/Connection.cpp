@@ -5,6 +5,7 @@
 #include "Connection.h"
 
 #include "../../Logger/Logger.h"
+#include "../Api/ApiFactory.h"
 #include "../Request/Request.h"
 
 using namespace Nafka::Connection;
@@ -22,9 +23,8 @@ void Connection::handle_requests() const {
 }
 
 void Connection::send_responses(const Request& request) const {
-    const ResponseHeader header(request.header.correlation_id);
-    const ResponseBody body;
-    const Response response(header, body);
+
+    const Response response = ApiFactory::getApiResponseFunc(request.header.request_api_key)(request);
 
     try {
         send_data(response.serialize());

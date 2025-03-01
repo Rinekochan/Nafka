@@ -15,7 +15,9 @@ add_executable(Nafka main.cpp
         Connection/Request/Request.cpp
         Connection/Request/Request.h
         Connection/Connection/Connection.cpp
-        Connection/Connection/Connection.h)
+        Connection/Connection/Connection.h
+        Connection/Api/ApiFactory.h
+        Connection/Api/Api.h)
 if(WIN32)
     target_link_libraries(Nafka ws2_32)
 endif()

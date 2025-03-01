@@ -34,7 +34,7 @@
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 20,
+				"line" : 22,
 				"parent" : 0
 			}
 		]
@@ -124,7 +124,9 @@
 				7,
 				8,
 				10,
-				12
+				12,
+				13,
+				14
 			]
 		}
 	],
@@ -199,6 +201,16 @@
 		{
 			"backtrace" : 1,
 			"path" : "Connection/Connection/Connection.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "Connection/Api/ApiFactory.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "Connection/Api/Api.h",
 			"sourceGroupIndex" : 1
 		}
 	],

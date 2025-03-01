@@ -14,6 +14,9 @@ using namespace Nafka::Connection;
 ResponseHeader::ResponseHeader(const uint32_t correlation_id)
     : correlation_id(correlation_id){}
 
+ResponseBody::ResponseBody(const uint16_t error_code)
+    : error_code(error_code){}
+
 Response::Response(const ResponseHeader& header, const ResponseBody& body)
     : header(header), body(body) {}
 
@@ -26,6 +29,14 @@ std::vector<uint8_t> ResponseHeader::serialize() const {
     return bi_data;
 }
 
+std::vector<uint8_t> ResponseBody::serialize() const {
+    std::vector<uint8_t> bi_data;
+
+    Helper::serialize_bytes(error_code, bi_data, sizeof(error_code));
+
+    return bi_data;
+}
+
 std::vector<uint8_t> Response::serialize() const {
     std::vector<uint8_t> bi_data;
 
@@ -34,10 +45,13 @@ std::vector<uint8_t> Response::serialize() const {
     auto header_data = header.serialize();
     bi_data.insert(std::end(bi_data), std::begin(header_data), std::end(header_data));
 
+    auto body_data = body.serialize();
+    bi_data.insert(std::end(bi_data), std::begin(body_data), std::end(body_data));
+
     return bi_data;
 }
 
 std::string Response::to_string() const {
-    return std::format("\"message_size\": {},\n\"correlation_id\": {}",
-        message_size, header.correlation_id);
+    return std::format("\"message_size\": {},\n\"correlation_id\": {},\n\"error_code\": {}",
+        message_size, header.correlation_id, body.error_code);
 }
